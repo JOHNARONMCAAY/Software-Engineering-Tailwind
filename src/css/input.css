@@ -25,7 +25,6 @@
     @apply transition-colors duration-200;
   }
 
-  /* --- HEADER --- */
   .index-page .site-header {
     @apply bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-accent/30 shadow-sm;
   }
@@ -171,29 +170,24 @@
   }
 
   .card-container {
-    @apply grid gap-8 justify-items-center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    @apply grid gap-8 justify-items-center grid-cols-[repeat(auto-fit,minmax(250px,1fr))];
   }
 
   .card {
-    perspective: 1000px;
-    @apply w-full max-w-xs h-80 relative;
+    @apply relative w-full max-w-xs h-80 perspective-[1000px];
   }
 
   .card-inner {
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-    @apply relative w-full h-full hidden md:block; 
+    @apply relative w-full h-full hidden md:block transform-3d [transition:transform_0.8s];
   }
 
   .card:hover .card-inner {
-    transform: rotateY(180deg);
+    @apply transform-[rotateY(180deg)];
   }
 
   .card-front,
   .card-back {
-    backface-visibility: hidden;
-    @apply absolute w-full h-full rounded-2xl shadow-lg border border-accent/40 overflow-hidden;
+    @apply absolute w-full h-full rounded-2xl shadow-lg border border-accent/40 overflow-hidden backface-hidden;
   }
 
   .card-front {
@@ -205,13 +199,12 @@
   }
 
   .card-back {
-    transform: rotateY(180deg);
-    @apply hidden md:flex flex-col items-center justify-center text-center p-6;
+    @apply hidden md:flex flex-col items-center justify-center text-center p-6 transform-[rotateY(180deg)];
   }
 
   .card-back h3,
   .card-back p {
-    @apply md:block; 
+    @apply md:block;
   }
 
   .card-static {
@@ -224,7 +217,7 @@
 
   .card-static h3,
   .card-static p {
-    @apply hidden; 
+    @apply hidden;
   }
 }
 
@@ -258,15 +251,6 @@
 }
 
 @layer utilities {
-  .typing {
-    @apply overflow-hidden whitespace-nowrap border-r-2;
-    border-color: var(--color-primary);
-    display: inline-block;
-    width: 0ch;
-    animation: typing 4s steps(38, end) infinite alternate,
-               blink 0.5s step-end infinite;
-  }
-
   @keyframes typing {
     0% { width: 0ch; }
     50%, 55% { width: 38ch; }
@@ -277,6 +261,12 @@
     50% { border-color: transparent; }
   }
 
-  .lift-hover { @apply transform transition-transform duration-200; }
-  .lift-hover:hover { transform: translateY(-4px); }
+  .typing {
+    @apply overflow-hidden whitespace-nowrap border-r-2 border-primary inline-block w-0 
+           animate-[typing_4s_steps(38,end)_infinite_alternate,blink_0.5s_step-end_infinite];
+  }
+
+  .lift-hover {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
 }

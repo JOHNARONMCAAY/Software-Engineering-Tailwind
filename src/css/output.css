@@ -1035,24 +1035,24 @@
   }
   .card-container {
     display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     justify-items: center;
     gap: calc(var(--spacing) * 8);
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
   .card {
-    perspective: 1000px;
     position: relative;
     height: calc(var(--spacing) * 80);
     width: 100%;
     max-width: var(--container-xs);
+    perspective: 1000px;
   }
   .card-inner {
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
     position: relative;
     display: none;
     height: 100%;
     width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
     @media (width >= 48rem) {
       display: block;
     }
@@ -1061,7 +1061,6 @@
     transform: rotateY(180deg);
   }
   .card-front, .card-back {
-    backface-visibility: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -1075,6 +1074,7 @@
     }
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    backface-visibility: hidden;
   }
   .card-front {
     background-color: var(--color-surface);
@@ -1085,8 +1085,8 @@
     object-fit: cover;
   }
   .card-back {
-    transform: rotateY(180deg);
     display: none;
+    transform: rotateY(180deg);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1133,16 +1133,6 @@
 @layer components.ch3;
 @layer components.ch4;
 @layer utilities {
-  .typing {
-    overflow: hidden;
-    border-right-style: var(--tw-border-style);
-    border-right-width: 2px;
-    white-space: nowrap;
-    border-color: var(--color-primary);
-    display: inline-block;
-    width: 0ch;
-    animation: typing 4s steps(38, end) infinite alternate, blink 0.5s step-end infinite;
-  }
   @keyframes typing {
     0% {
       width: 0ch;
@@ -1159,16 +1149,28 @@
       border-color: transparent;
     }
   }
+  .typing {
+    display: inline-block;
+    width: calc(var(--spacing) * 0);
+    animation: typing 4s steps(38,end) infinite alternate,blink 0.5s step-end infinite;
+    overflow: hidden;
+    border-right-style: var(--tw-border-style);
+    border-right-width: 2px;
+    border-color: var(--color-primary);
+    white-space: nowrap;
+  }
   .lift-hover {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
     --tw-duration: 200ms;
     transition-duration: 200ms;
-  }
-  .lift-hover:hover {
-    transform: translateY(-4px);
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-y: calc(var(--spacing) * -1);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
   }
 }
 @property --tw-shadow {
