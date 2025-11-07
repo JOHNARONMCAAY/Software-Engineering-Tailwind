@@ -266,7 +266,7 @@
 }
 
 .ch1-dv2 {
-  @apply absolute left-0 mt-2 w-72 bg-[#D6C3A1] rounded-md shadow-md border border-[#6A8F7C] opacity-0 invisible transform translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10 p-3 text-[#3E352B] font-medium flex flex-col gap-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl;
+  @apply absolute mt-2 p-4 bg-[#B57E4C] rounded-md shadow-lg hidden peer-checked:block min-w-[220px] z-10
 }
 
 .ch1-dv3 {
@@ -334,20 +334,16 @@
 
 /* ────────────── Buttons & Navigation ────────────── */
 .ch1-btn1 {
-  @apply bg-[#B57E4C] text-[#FFF9E6] font-semibold py-2 px-6 rounded-md shadow hover:bg-[#6A8F7C] transition-colors duration-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl;
+  @apply bg-[#B57E4C] text-[#FFF9E6] font-semibold py-2 px-6 rounded-md shadow
+         hover:bg-[#8f846a] transition-colors duration-200
+         text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl cursor-pointer select-none block;
 }
 
-.ch1-btn2 {
-  @apply bg-transparent hover:bg-[#D6C3A1] text-[#3E352B] font-bold transition-colors duration-200 rounded-xl px-1 sm:px-1 py-1 sm:py-1;
-}
-
-.ch1-btnbg {
-  @apply fixed top-5 left-5 bg-[#B57E4C] hover:bg-[#6A8F7C] text-[#FFF9E6] font-bold py-1 px-2 rounded-full shadow-lg transition-transform duration-300 transform hover:-translate-y-1 text-lg;
-}
 
 .ch1-nav {
-  @apply hover:text-[#B57E4C] hover:underline text-[#3E352B];
+  @apply hover:text-[#523113] hover:underline text-[#3E352B];
 }
+
 
 .ch1-nav1 {
   @apply text-[#B57E4C] underline font-semibold;
