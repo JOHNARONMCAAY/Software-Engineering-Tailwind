@@ -224,6 +224,9 @@
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
   .contents {
     display: contents;
   }
@@ -391,6 +394,7 @@
     }
   }
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@400..800&display=swap');
 @layer components.index {
   .index-page {
     display: flex;
@@ -1268,9 +1272,6 @@
   }
   .body {
     background-color: #FFF9E6;
-    font-family: var(--font-serif);
-    --tw-leading: var(--leading-relaxed);
-    line-height: var(--leading-relaxed);
   }
   .ch1-section {
     margin-inline: auto;

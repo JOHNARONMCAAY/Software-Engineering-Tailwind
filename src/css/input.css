@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@400..800&display=swap');
+
+
 
 @theme {
   --color-bg: #fefae0;
@@ -247,7 +250,7 @@
  /* ────────────── Sections & Containers ────────────── */
 
 .body{
-  @apply bg-[#FFF9E6] font-serif leading-relaxed
+  @apply bg-[#FFF9E6]
 }
  .ch1-section {
   @apply max-w-7xl mx-auto space-y-12 mt-12 bg-[#FFF9E6];
